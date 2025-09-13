@@ -1,0 +1,59 @@
+[gd_scene load_steps=2 format=3 uid="uid://fdieole22yic"]
+
+[ext_resource type="Script" uid="uid://cqyfhkg7wabuw" path="res://scripts/SettingsPanel.cs" id="1_66ceq"]
+
+[node name="SettingContainer" type="PanelContainer"]
+offset_right = 400.0
+offset_bottom = 500.0
+script = ExtResource("1_66ceq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "API Key Setting"
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "OpenRouter API Key:"
+
+[node name="OpenRouterKeyLineEdit" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+secret = true
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Azure Speech Key"
+
+[node name="AzureKeyLineEdit" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+secret = true
+
+[node name="Label4" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Azure Speech Region"
+
+[node name="AzureRegionLineEdit" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+secret = true
+
+[node name="SaveButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Save and Close"
+
+[node name="Label5" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.607302, 0.607302, 0.607302, 1)
+theme_override_font_sizes/font_size = 20
+text = "Leave OpenRouter Api key blank to use local model provider such as Ollama
+For more information, please check:    https://ollama.com/"
+
+[node name="UseLocalCheckButton" type="CheckButton" parent="VBoxContainer"]
+layout_mode = 2
+text = "Use local LLM"

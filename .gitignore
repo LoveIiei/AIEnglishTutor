@@ -1,0 +1,14 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+*.cfg
+*.import
+
+# Mono-specific (if you’re using C#)
+.mono/
+data_*/
+mono_crash.*.json
+
+# System/Editor junk
+.DS_Store
+Thumbs.db

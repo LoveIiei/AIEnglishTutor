@@ -1,0 +1,73 @@
+[gd_scene load_steps=8 format=3 uid="uid://ii3483pipb8q"]
+
+[ext_resource type="Script" uid="uid://dy5o7df3ojxup" path="res://scripts/MainWindow.cs" id="1_55ks2"]
+[ext_resource type="PackedScene" uid="uid://cgalpvhh7b88b" path="res://scene/character.tscn" id="1_qtdy8"]
+[ext_resource type="PackedScene" uid="uid://fdieole22yic" path="res://scene/settings_panel.tscn" id="3_h4r5k"]
+
+[sub_resource type="Theme" id="Theme_55ks2"]
+default_font_size = 30
+
+[sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_55ks2"]
+
+[sub_resource type="Theme" id="Theme_h4r5k"]
+
+[sub_resource type="Theme" id="Theme_ueasn"]
+
+[node name="MainWindow" type="Node2D"]
+script = ExtResource("1_55ks2")
+
+[node name="Character" parent="." instance=ExtResource("1_qtdy8")]
+position = Vector2(391, 573)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="TalkButton" type="Button" parent="."]
+offset_left = 943.0
+offset_top = 1070.0
+offset_right = 1478.0
+offset_bottom = 1240.0
+theme = SubResource("Theme_55ks2")
+text = "Press and hold to Talk"
+
+[node name="MicInputPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamMicrophone_55ks2")
+autoplay = true
+bus = &"MicInput"
+
+[node name="HistoryCheckButton" type="CheckButton" parent="."]
+offset_left = 838.0
+offset_top = 92.0
+offset_right = 1036.0
+offset_bottom = 168.0
+theme = SubResource("Theme_h4r5k")
+theme_override_constants/icon_max_width = 50
+theme_override_font_sizes/font_size = 40
+text = "History "
+
+[node name="HistoryLabel" type="RichTextLabel" parent="."]
+offset_left = 931.0
+offset_top = 192.0
+offset_right = 1481.0
+offset_bottom = 850.0
+theme = SubResource("Theme_ueasn")
+theme_override_font_sizes/bold_italics_font_size = 30
+theme_override_font_sizes/italics_font_size = 30
+theme_override_font_sizes/mono_font_size = 26
+theme_override_font_sizes/normal_font_size = 26
+theme_override_font_sizes/bold_font_size = 30
+bbcode_enabled = true
+scroll_following = true
+
+[node name="SettingsButton" type="Button" parent="."]
+offset_left = 1447.0
+offset_top = 109.0
+offset_right = 1558.0
+offset_bottom = 153.0
+text = "Settings"
+
+[node name="SettingsPanel" parent="." instance=ExtResource("3_h4r5k")]
+visible = false
+offset_left = 849.0
+offset_top = 205.0
+offset_right = 1249.0
+offset_bottom = 505.0

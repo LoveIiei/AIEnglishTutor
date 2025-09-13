@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvhvc6w8accid"]
+
+[ext_resource type="Script" uid="uid://dngx1rctqvw0p" path="res://scripts/Apiservice.cs" id="1_kykbg"]
+
+[node name="Apiservice" type="Node"]
+script = ExtResource("1_kykbg")

@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://cgalpvhh7b88b"]
+
+[ext_resource type="Texture2D" uid="uid://crljde27tvcda" path="res://Assests/character/Anime Mature Woman Free.png" id="1_3x35j"]
+[ext_resource type="Script" uid="uid://n153ve38m701" path="res://scripts/Character.cs" id="1_d7vt2"]
+[ext_resource type="Texture2D" uid="uid://biyknw2rmn7n1" path="res://Assests/character/AnimeMatureWomanNormal.png" id="2_7v2w7"]
+[ext_resource type="Texture2D" uid="uid://c8t6ktt5ayxgh" path="res://Assests/character/AnimeMatureWomanTalk.png" id="3_6k5wm"]
+[ext_resource type="Texture2D" uid="uid://du63d2bbpyhfh" path="res://Assests/character/AnimeMatureWomanSmile.png" id="4_p3t0x"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k8rrn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7v2w7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3x35j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_p3t0x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_3x35j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_p3t0x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_3x35j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_p3t0x")
+}],
+"loop": true,
+"name": &"listening",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3x35j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6k5wm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_3x35j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6k5wm")
+}],
+"loop": true,
+"name": &"talking",
+"speed": 4.0
+}]
+
+[node name="Character" type="Node2D"]
+script = ExtResource("1_d7vt2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_k8rrn")
+animation = &"listening"
+frame_progress = 0.567138
