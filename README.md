@@ -43,3 +43,9 @@ This is the initial release of the AI English Tutor, a desktop application built
 5.  **To use Cloud Mode:** Uncheck the local model box and enter your OpenRouter and Azure API keys, then click "Save".
 6.  **Restart the application** for the new settings to take effect.
 7.  Press and hold the "Hold to Talk" button to start a conversation!
+
+## Contribution:
+Any PRs and suggestions are welcomed!
+
+## Credit:
+Thanks for sutemo creating such an amazing character sprite, please find the original work and support him/her at https://sutemo.itch.io/female-mature-anime-sprite
