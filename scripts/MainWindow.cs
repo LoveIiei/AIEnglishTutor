@@ -52,6 +52,8 @@ public partial class MainWindow : Node
         talkButton.ButtonDown += OnTalkButtonDown;
         talkButton.ButtonUp += OnTalkButtonUp;
 
+        audioPlayer.Finished += OnAudioPlayerFinished;
+
         settingsButton = GetNode<Button>("SettingsButton");
         settingsPanel = GetNode<SettingsPanel>("SettingsPanel");
 
@@ -63,6 +65,12 @@ public partial class MainWindow : Node
         //    talkButton.Disabled = true;
         //    talkButton.Text = "Set API Keys in Settings";
         //}
+    }
+
+    private void OnAudioPlayerFinished()
+    {
+        // When the audio stops, set the character back to idle.
+        character.PlayAnimation("idle");
     }
 
     // --- NEW: A method to handle showing/hiding the history label ---
@@ -97,9 +105,13 @@ public partial class MainWindow : Node
 
     private void OnTalkButtonDown()
     {
+        audioPlayer.Stop();
+
         StartRecording();
         character.PlayAnimation("listening");
     }
+
+    // In MainWindow.cs (or MainScene.cs)
 
     private async void OnTalkButtonUp()
     {
@@ -114,19 +126,31 @@ public partial class MainWindow : Node
         talkButton.Disabled = true;
         talkButton.Text = "Thinking...";
 
-        // 1. Transcribe the user's speech
-        string userText = await apiManager.TranscribeSpeech(recording.Data, recording.Stereo, recording.MixRate);
-        if (string.IsNullOrWhiteSpace(userText))
+        // 1. Transcribe the user's speech using the new router.
+        string userText = await apiManager.TranscribeSpeech(recording);
+
+        // --- MODIFIED AND IMPROVED ERROR CHECK ---
+        // We now check for two types of failure:
+        // 1. A completely empty response (from Azure NoMatch).
+        // 2. A string that starts with "Error:" (from our new router logic).
+        if (string.IsNullOrWhiteSpace(userText) || userText.StartsWith("Error:"))
         {
+            // If it's an error, display it in the history so the user knows what went wrong.
+            if (!string.IsNullOrWhiteSpace(userText))
+            {
+                AppendToHistory("System", userText);
+            }
+
             talkButton.Disabled = false;
             talkButton.Text = "Try Again";
+            // Stop the method here. Do not proceed to the LLM.
             return;
         }
 
-        // --- NEW: Display the user's text in the history ---
+        // If we get here, transcription was successful.
         AppendToHistory("You", userText);
 
-        // 2. Get a response from the AI model
+        // 2. Get a response from the AI model (LLM).
         string gptResponse = await apiManager.GetChatGPTResponse(userText);
         if (string.IsNullOrWhiteSpace(gptResponse))
         {
@@ -135,19 +159,20 @@ public partial class MainWindow : Node
             return;
         }
 
-        // --- NEW: Display the AI's response in the history ---
         AppendToHistory("Jenny", gptResponse);
 
-        // 3. Synthesize the AI's response into speech
+        // 3. Synthesize the AI's response into speech.
         talkButton.Text = "Speaking...";
         AudioStream synthesizedAudio = await apiManager.SynthesizeSpeech(gptResponse);
         if (synthesizedAudio != null)
         {
+            GD.Print("Playing audio");
+            audioPlayer.Stop();
             audioPlayer.Stream = synthesizedAudio;
             audioPlayer.Play();
             character.PlayAnimation("talking");
-            await ToSignal(audioPlayer, AudioStreamPlayer.SignalName.Finished);
-            character.PlayAnimation("idle");
+            // We NO LONGER wait here. The method finishes, and the audio plays.
+            // The "Finished" signal will handle the animation change later.
         }
 
         talkButton.Disabled = false;

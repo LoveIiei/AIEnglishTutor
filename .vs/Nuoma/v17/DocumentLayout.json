@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{770782F0-EE3C-47F7-9DBC-E6CF4DC14E47}|Nuoma.csproj|solutionrelative:scripts\\apiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{770782F0-EE3C-47F7-9DBC-E6CF4DC14E47}|Nuoma.csproj|d:\\documents\\godotgames\\nuoma\\scripts\\settingspanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{770782F0-EE3C-47F7-9DBC-E6CF4DC14E47}|Nuoma.csproj|solutionrelative:scripts\\settingspanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{770782F0-EE3C-47F7-9DBC-E6CF4DC14E47}|Nuoma.csproj|d:\\documents\\godotgames\\nuoma\\scripts\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{770782F0-EE3C-47F7-9DBC-E6CF4DC14E47}|Nuoma.csproj|solutionrelative:scripts\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{770782F0-EE3C-47F7-9DBC-E6CF4DC14E47}|Nuoma.csproj|d:\\documents\\godotgames\\nuoma\\scripts\\settingspanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{770782F0-EE3C-47F7-9DBC-E6CF4DC14E47}|Nuoma.csproj|solutionrelative:scripts\\settingspanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{770782F0-EE3C-47F7-9DBC-E6CF4DC14E47}|Nuoma.csproj|d:\\documents\\godotgames\\nuoma\\scripts\\character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -38,26 +38,25 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "SettingsPanel.cs",
               "DocumentMoniker": "D:\\Documents\\GodotGames\\nuoma\\scripts\\SettingsPanel.cs",
               "RelativeDocumentMoniker": "scripts\\SettingsPanel.cs",
               "ToolTip": "D:\\Documents\\GodotGames\\nuoma\\scripts\\SettingsPanel.cs",
               "RelativeToolTip": "scripts\\SettingsPanel.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAmwAwAAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAAEAAAAAAAAAAAAAcwE0AAABhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-12T23:35:10.863Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-12T23:35:10.863Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "MainWindow.cs",
               "DocumentMoniker": "D:\\Documents\\GodotGames\\nuoma\\scripts\\MainWindow.cs",
               "RelativeDocumentMoniker": "scripts\\MainWindow.cs",
               "ToolTip": "D:\\Documents\\GodotGames\\nuoma\\scripts\\MainWindow.cs",
               "RelativeToolTip": "scripts\\MainWindow.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAowDkAAAA0AAAAAAAAAA==",
+              "ViewState": "AgIAAJ4AAAAAAAAAAAAjwKgAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-12T18:46:15.66Z",
               "EditorCaption": ""
@@ -70,7 +69,7 @@
               "RelativeDocumentMoniker": "scripts\\Apiservice.cs",
               "ToolTip": "D:\\Documents\\GodotGames\\nuoma\\scripts\\Apiservice.cs",
               "RelativeToolTip": "scripts\\Apiservice.cs",
-              "ViewState": "AgIAAGoAAAAAAAAAAAA3wHAAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAADgBAAAAAAAAAAAnwEwBAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-12T18:33:22.759Z",
               "EditorCaption": ""

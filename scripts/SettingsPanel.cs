@@ -7,7 +7,10 @@ public partial class SettingsPanel : PanelContainer
     private LineEdit azureKeyLineEdit;
     private LineEdit azureRegionLineEdit;
     private Button saveButton;
-    private CheckButton useLocalCheckButton;
+    private CheckButton useLocalSttCheckButton;
+    private LineEdit ollamaModelLineEdit;
+    private LineEdit piperPathLineEdit;
+    private LineEdit piperModelLineEdit;
 
     // Define the path for our saved keys file. user:// is the best place for this.
     public const string ApiKeysFilePath = "user://api_keys.cfg";
@@ -19,7 +22,10 @@ public partial class SettingsPanel : PanelContainer
         azureKeyLineEdit = GetNode<LineEdit>("VBoxContainer/AzureKeyLineEdit");
         azureRegionLineEdit = GetNode<LineEdit>("VBoxContainer/AzureRegionLineEdit");
         saveButton = GetNode<Button>("VBoxContainer/SaveButton");
-        useLocalCheckButton = GetNode<CheckButton>("VBoxContainer/UseLocalCheckButton");
+        useLocalSttCheckButton = GetNode<CheckButton>("VBoxContainer/UseLocalSttCheckButton");
+        ollamaModelLineEdit = GetNode<LineEdit>("VBoxContainer/OllamaModelLineEdit");
+        piperPathLineEdit = GetNode<LineEdit>("VBoxContainer/PiperPathLineEdit");
+        piperModelLineEdit = GetNode<LineEdit>("VBoxContainer/PiperModelLineEdit");
 
         // Connect the button's pressed signal to our save method
         saveButton.Pressed += OnSaveButtonPressed;
@@ -33,7 +39,11 @@ public partial class SettingsPanel : PanelContainer
         var config = new ConfigFile();
 
         // Get the text from the LineEdits and save it
-        config.SetValue("user_settings", "prioritize_local", useLocalCheckButton.ButtonPressed);
+        config.SetValue("local_paths", "ollama_model", ollamaModelLineEdit.Text);
+        config.SetValue("local_paths", "piper_path", piperPathLineEdit.Text);
+        config.SetValue("local_paths", "piper_model_path", piperModelLineEdit.Text);
+        config.SetValue("user_settings", "use_local_stt", useLocalSttCheckButton.ButtonPressed);
+
         config.SetValue("api_keys", "openrouter_key", openRouterKeyLineEdit.Text);
         config.SetValue("api_keys", "azure_speech_key", azureKeyLineEdit.Text);
         config.SetValue("api_keys", "azure_speech_region", azureRegionLineEdit.Text);
@@ -65,7 +75,10 @@ public partial class SettingsPanel : PanelContainer
         }
 
         bool prioritizeLocal = config.GetValue("user_settings", "prioritize_local", false).AsBool();
-        useLocalCheckButton.ButtonPressed = prioritizeLocal;
+        ollamaModelLineEdit.Text = config.GetValue("local_paths", "ollama_model", "").ToString();
+        piperPathLineEdit.Text = config.GetValue("local_paths", "piper_path", "").ToString();
+        piperModelLineEdit.Text = config.GetValue("local_paths", "piper_model_path", "").ToString();
+        useLocalSttCheckButton.ButtonPressed = config.GetValue("user_settings", "use_local_stt", false).AsBool();
 
         openRouterKeyLineEdit.Text = config.GetValue("api_keys", "openrouter_key", "").ToString();
         azureKeyLineEdit.Text = config.GetValue("api_keys", "azure_speech_key", "").ToString();
