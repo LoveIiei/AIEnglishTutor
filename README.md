@@ -9,17 +9,19 @@ This is the initial release of the AI English Tutor, a desktop application built
 
 *   **Animated 2D Character:** The tutor is represented by an animated character with `idle`, `listening`, and `talking` states for clear visual feedback.
 
-*   **Dual AI Engine:** You choose the "brain" of the AI!
-    *   ✅ **Local Mode (Default):** Utilizes a local LLM server via **Ollama** for a completely offline, private, and free experience. Perfect for powerful machines running models like `Llama-3:8b`.
-    *   ✅ **Cloud Mode (Optional):** Supports cloud-based models through **OpenRouter**. Users can provide their own API keys to access a wide range of models.
+*   **Hybrid AI Engine (Cloud & Local):** You have complete control over the AI backend.
+    *   ✅ **Local Mode (Default):**
+        *   **LLM:** [Ollama](https://ollama.com/)
+        *   **STT:** [Whisper.cpp](https://github.com/ggerganov/whisper.cpp)
+        *   **TTS:** [Piper](https://github.com/rhasspy/piper)
+    *   ✅ **Cloud Mode (Fallback):**
+        *   **LLM:** [OpenRouter](https://openrouter.ai/)
+        *   **STT/TTS:** [Microsoft Azure Speech](https://azure.microsoft.com/en-us/products/ai-services/speech-to-text)
 
 *   **On-Screen UI:**
     *   A **conversation history log** lets you review your and the AI's responses.
     *   A **"Show History"** checkbox to toggle the log's visibility.
     *   A **Settings Panel** to securely manage API keys and app preferences.
-
-*   **User-Controlled Logic:**
-    *   A "Prioritize Local Model" checkbox gives you full control, allowing you to switch to your local Ollama instance even if you have API keys saved.
 
 *   **Customizable AI Persona:** The AI's personality is defined by a detailed **system prompt**, instructing it to act as a friendly, encouraging, and simple English tutor. Model parameters like `temperature` and `max_tokens` are also configured for optimal performance.
 
@@ -38,12 +40,12 @@ This is the initial release of the AI English Tutor, a desktop application built
 ## 🚀 Getting Started
 
 1.  **(For Local Mode)** Ensure [Ollama](https://ollama.com/) is installed and running a model in the terminal (e.g., `ollama run llama3:8b`).
-2. (For Local Mode) Piper and Whisper are used for TTS and STT services, please install the correct versions:  
+2. **(For Local Mode)** Piper and Whisper are used for TTS and STT services, please install the correct versions:  
 [Whisper](https://github.com/ggml-org/whisper.cpp/releases):
 * Install the whisper-cublas-12.4.0-bin-x64.zip if you have Nvidia GPU
 * Install the whisper-bin-x64.zip if you only want to run on CPU on Windows, whisper-blas-bin-x64.zip is also CPU only, but faster
-* Install whisper-v1.7.6-xcframework.zip for macOS
-[Piper](https://github.com/rhasspy/piper/releases):
+* Install whisper-v1.7.6-xcframework.zip for macOS  
+[Piper](https://github.com/rhasspy/piper/releases):  
 * Please install the correct version for your platform.
 3.  Launch the application.
 4.  Click the **"Settings"** button.
@@ -57,8 +59,7 @@ After opening the app, you can click on the Settings button at the top right cor
 In there, you can see a page like this:
 ![settingview](Images/settings.png)
 
-If you want to use online services like OpenRouter, then you need to fill in your own API keys
-Same applies to Azure Speech Service
+If you want to use online services like OpenRouter, then you need to fill in your own API keys. Same applies to Azure Speech Service
 
 If you have set up your Local Ollama+Whisper+Piper, then:  
 1. You need specify the model name you want to use with Ollama, make sure you already installed the model locally, if any error happens, please try running `ollama pull {modelname}`
