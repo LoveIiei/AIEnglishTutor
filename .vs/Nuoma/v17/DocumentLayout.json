@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "D:\\Documents\\GodotGames\\nuoma\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{770782F0-EE3C-47F7-9DBC-E6CF4DC14E47}|Nuoma.csproj|d:\\documents\\godotgames\\nuoma\\scripts\\apiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{770782F0-EE3C-47F7-9DBC-E6CF4DC14E47}|Nuoma.csproj|solutionrelative:scripts\\apiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{770782F0-EE3C-47F7-9DBC-E6CF4DC14E47}|Nuoma.csproj|d:\\documents\\godotgames\\nuoma\\scripts\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{770782F0-EE3C-47F7-9DBC-E6CF4DC14E47}|Nuoma.csproj|solutionrelative:scripts\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{770782F0-EE3C-47F7-9DBC-E6CF4DC14E47}|Nuoma.csproj|d:\\documents\\godotgames\\nuoma\\scripts\\character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{770782F0-EE3C-47F7-9DBC-E6CF4DC14E47}|Nuoma.csproj|solutionrelative:scripts\\character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{770782F0-EE3C-47F7-9DBC-E6CF4DC14E47}|Nuoma.csproj|d:\\documents\\godotgames\\nuoma\\scripts\\settingspanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{770782F0-EE3C-47F7-9DBC-E6CF4DC14E47}|Nuoma.csproj|solutionrelative:scripts\\settingspanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{770782F0-EE3C-47F7-9DBC-E6CF4DC14E47}|Nuoma.csproj|d:\\documents\\godotgames\\nuoma\\scripts\\character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{770782F0-EE3C-47F7-9DBC-E6CF4DC14E47}|Nuoma.csproj|solutionrelative:scripts\\character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{770782F0-EE3C-47F7-9DBC-E6CF4DC14E47}|Nuoma.csproj|d:\\documents\\godotgames\\nuoma\\scripts\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{770782F0-EE3C-47F7-9DBC-E6CF4DC14E47}|Nuoma.csproj|solutionrelative:scripts\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{770782F0-EE3C-47F7-9DBC-E6CF4DC14E47}|Nuoma.csproj|d:\\documents\\godotgames\\nuoma\\scripts\\apiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{770782F0-EE3C-47F7-9DBC-E6CF4DC14E47}|Nuoma.csproj|solutionrelative:scripts\\apiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,53 +38,55 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "SettingsPanel.cs",
               "DocumentMoniker": "D:\\Documents\\GodotGames\\nuoma\\scripts\\SettingsPanel.cs",
               "RelativeDocumentMoniker": "scripts\\SettingsPanel.cs",
               "ToolTip": "D:\\Documents\\GodotGames\\nuoma\\scripts\\SettingsPanel.cs",
               "RelativeToolTip": "scripts\\SettingsPanel.cs",
-              "ViewState": "AgIAAEAAAAAAAAAAAAAcwE0AAABhAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGwAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-12T23:35:10.863Z"
+              "WhenOpened": "2025-09-12T23:35:10.863Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "MainWindow.cs",
               "DocumentMoniker": "D:\\Documents\\GodotGames\\nuoma\\scripts\\MainWindow.cs",
               "RelativeDocumentMoniker": "scripts\\MainWindow.cs",
               "ToolTip": "D:\\Documents\\GodotGames\\nuoma\\scripts\\MainWindow.cs",
               "RelativeToolTip": "scripts\\MainWindow.cs",
-              "ViewState": "AgIAAJ4AAAAAAAAAAAAjwKgAAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAIwBsAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-12T18:46:15.66Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Apiservice.cs",
               "DocumentMoniker": "D:\\Documents\\GodotGames\\nuoma\\scripts\\Apiservice.cs",
               "RelativeDocumentMoniker": "scripts\\Apiservice.cs",
               "ToolTip": "D:\\Documents\\GodotGames\\nuoma\\scripts\\Apiservice.cs",
               "RelativeToolTip": "scripts\\Apiservice.cs",
-              "ViewState": "AgIAADgBAAAAAAAAAAAnwEwBAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAABEAAAAAAAAAAAAmwKkBAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-12T18:33:22.759Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "Character.cs",
               "DocumentMoniker": "D:\\Documents\\GodotGames\\nuoma\\scripts\\Character.cs",
               "RelativeDocumentMoniker": "scripts\\Character.cs",
               "ToolTip": "D:\\Documents\\GodotGames\\nuoma\\scripts\\Character.cs",
               "RelativeToolTip": "scripts\\Character.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAmwBYAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-12T18:26:15.972Z"
+              "WhenOpened": "2025-09-12T18:26:15.972Z",
+              "EditorCaption": ""
             }
           ]
         }

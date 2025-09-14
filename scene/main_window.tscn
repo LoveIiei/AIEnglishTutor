@@ -63,6 +63,7 @@ offset_left = 1447.0
 offset_top = 109.0
 offset_right = 1558.0
 offset_bottom = 153.0
+theme_override_font_sizes/font_size = 24
 text = "Settings"
 
 [node name="SettingsPanel" parent="." instance=ExtResource("3_h4r5k")]
@@ -71,3 +72,21 @@ offset_left = 849.0
 offset_top = 205.0
 offset_right = 1249.0
 offset_bottom = 505.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = 1144.0
+offset_top = 95.0
+offset_right = 1316.0
+offset_bottom = 141.0
+theme_override_font_sizes/font_size = 20
+text = "Faster <--> Slower"
+
+[node name="PiperSpeedSlider" type="HSlider" parent="."]
+offset_left = 1132.0
+offset_top = 130.0
+offset_right = 1333.0
+offset_bottom = 158.0
+min_value = 0.4
+max_value = 2.0
+step = 0.2
+value = 1.0

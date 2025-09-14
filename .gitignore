@@ -12,3 +12,5 @@ mono_crash.*.json
 # System/Editor junk
 .DS_Store
 Thumbs.db
+
+.vs/

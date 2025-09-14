@@ -25,6 +25,16 @@ layout_mode = 2
 placeholder_text = "e.g., sk-...."
 secret = true
 
+[node name="Label6" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "LLM Model Name (Ollama or OpenRouter)"
+
+[node name="OllamaModelLineEdit" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+placeholder_text = "e.g., llama3:8b"
+
 [node name="Label3" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
@@ -44,33 +54,12 @@ layout_mode = 2
 placeholder_text = "e.g., canadacentral"
 secret = true
 
-[node name="SaveButton" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_hover_pressed_color = Color(0, 0.485579, 0, 1)
-theme_override_font_sizes/font_size = 28
-text = "Save and Close"
-
 [node name="Label5" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.607302, 0.607302, 0.607302, 1)
 theme_override_font_sizes/font_size = 20
 text = "Leave Api keys blank or toggle buttons to use local models.
 Please check: https://github.com/LoveIiei/AIEnglishTutor/"
-
-[node name="UseLocalSttCheckButton" type="CheckButton" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Use local Speech to Text"
-
-[node name="Label6" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Local LLM Model Name (Ollama)"
-
-[node name="OllamaModelLineEdit" type="LineEdit" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-placeholder_text = "e.g., llama3:8b"
 
 [node name="Label7" type="Label" parent="VBoxContainer"]
 layout_mode = 2
@@ -91,3 +80,38 @@ text = "Local TTS Voice Model Path (.onnx)"
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 placeholder_text = "e.g., D:\\piper\\voices\\en_US-lessac-medium.onnx"
+
+[node name="Label9" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Local STT Executable Path (Whisper)"
+
+[node name="WhisperPathLineEdit" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+placeholder_text = "e.g., D:\\LocalAI\\whisper-version\\Release"
+
+[node name="Label10" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Local STT Model Path (Whisper)"
+
+[node name="WhisperModelLineEdit" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+placeholder_text = "e.g., D:\\LocalAI\\Models\\ggml-base.en-q8_0.bin"
+
+[node name="Label11" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "AI Persona (How model responds)"
+
+[node name="PersonaOptionButton" type="OptionButton" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+
+[node name="SaveButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0.485579, 0, 1)
+theme_override_font_sizes/font_size = 28
+text = "Save and Close"

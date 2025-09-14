@@ -7,6 +7,8 @@ public partial class MainWindow : Node
     private CheckButton historyCheckBox;
     private RichTextLabel historyLabel;
 
+    private HSlider piperSpeedSlider;
+
     // Node references from before
     private Character character;
     private Apiservice apiManager;
@@ -24,7 +26,6 @@ public partial class MainWindow : Node
 
     public override void _Ready()
     {
-        // --- NEW: Get references to the UI nodes ---
         historyCheckBox = GetNode<CheckButton>("HistoryCheckButton");
         historyLabel = GetNode<RichTextLabel>("HistoryLabel");
 
@@ -33,6 +34,11 @@ public partial class MainWindow : Node
         apiManager = GetNode<Apiservice>("/root/Apiservice");
         audioPlayer = GetNode<AudioStreamPlayer>("AudioStreamPlayer");
         talkButton = GetNode<Button>("TalkButton");
+
+        piperSpeedSlider = GetNode<HSlider>("PiperSpeedSlider");
+        piperSpeedSlider.Value = apiManager.PiperSpeed; // Set initial value after settings are loaded
+
+        piperSpeedSlider.ValueChanged += OnPiperSpeedChanged;
 
         // Get the audio effect for recording
         effectRecordResource = AudioServer.GetBusEffect(1, 1) as AudioEffectRecord;
@@ -43,7 +49,6 @@ public partial class MainWindow : Node
             return;
         }
 
-        // --- NEW: Connect the CheckBox's 'toggled' signal ---
         historyCheckBox.Toggled += OnHistoryToggled;
         // Start with the history hidden
         historyLabel.Visible = false;
@@ -73,13 +78,11 @@ public partial class MainWindow : Node
         character.PlayAnimation("idle");
     }
 
-    // --- NEW: A method to handle showing/hiding the history label ---
     private void OnHistoryToggled(bool isToggled)
     {
         historyLabel.Visible = isToggled;
     }
 
-    // --- NEW: A helper function to add text to our history box ---
     private void AppendToHistory(string speaker, string message)
     {
         // We use BBCode for simple formatting, like bolding the speaker's name
@@ -111,8 +114,6 @@ public partial class MainWindow : Node
         character.PlayAnimation("listening");
     }
 
-    // In MainWindow.cs (or MainScene.cs)
-
     private async void OnTalkButtonUp()
     {
         StopRecording();
@@ -126,13 +127,9 @@ public partial class MainWindow : Node
         talkButton.Disabled = true;
         talkButton.Text = "Thinking...";
 
-        // 1. Transcribe the user's speech using the new router.
+        // Transcribe the user's speech using the new router.
         string userText = await apiManager.TranscribeSpeech(recording);
 
-        // --- MODIFIED AND IMPROVED ERROR CHECK ---
-        // We now check for two types of failure:
-        // 1. A completely empty response (from Azure NoMatch).
-        // 2. A string that starts with "Error:" (from our new router logic).
         if (string.IsNullOrWhiteSpace(userText) || userText.StartsWith("Error:"))
         {
             // If it's an error, display it in the history so the user knows what went wrong.
@@ -150,7 +147,7 @@ public partial class MainWindow : Node
         // If we get here, transcription was successful.
         AppendToHistory("You", userText);
 
-        // 2. Get a response from the AI model (LLM).
+        // Get a response from the AI model (LLM).
         string gptResponse = await apiManager.GetChatGPTResponse(userText);
         if (string.IsNullOrWhiteSpace(gptResponse))
         {
@@ -161,7 +158,7 @@ public partial class MainWindow : Node
 
         AppendToHistory("Jenny", gptResponse);
 
-        // 3. Synthesize the AI's response into speech.
+        // Synthesize the AI's response into speech.
         talkButton.Text = "Speaking...";
         AudioStream synthesizedAudio = await apiManager.SynthesizeSpeech(gptResponse);
         if (synthesizedAudio != null)
@@ -171,8 +168,6 @@ public partial class MainWindow : Node
             audioPlayer.Stream = synthesizedAudio;
             audioPlayer.Play();
             character.PlayAnimation("talking");
-            // We NO LONGER wait here. The method finishes, and the audio plays.
-            // The "Finished" signal will handle the animation change later.
         }
 
         talkButton.Disabled = false;
@@ -182,5 +177,12 @@ public partial class MainWindow : Node
     private void OnSettingsButtonPressed()
     {
         settingsPanel.Show();
+    }
+
+    private void OnPiperSpeedChanged(double value)
+    {
+        // Update the public property on the ApiManager singleton.
+        // The value is cast to a float to match the property's type.
+        apiManager.PiperSpeed = (float)value;
     }
 }
